@@ -2,10 +2,9 @@
 
 import os
 import json
-from settings import model
+from settings import model, transcript_filename
 from openai import OpenAI
 from dotenv import load_dotenv, find_dotenv
-from transcript_retriever import get_episode_transcript, get_youtube_video_transcript
 
 
 load_dotenv(find_dotenv())
@@ -23,7 +22,7 @@ assistant = client.beta.assistants.create(
 )
 
 file = client.files.create(
-  file=open("transcript.txt", "rb"),
+  file=open(transcript_filename, "rb"),
   purpose="assistants"
 )
 
