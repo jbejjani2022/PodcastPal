@@ -1,3 +1,5 @@
+# Test file_search functionality
+
 import os
 import json
 from settings import model
@@ -47,6 +49,31 @@ if run.status == 'completed':
   messages = client.beta.threads.messages.list(thread_id=thread.id)
   current_message = (messages.data)[0]
   print(current_message.content[0].text.value)
-  print(current_message)
+  # print(current_message)
+else:
+  print(run.status)
+  
+  
+prompt2 = "Summarize the episode in 3 bullet points."
+message = client.beta.threads.messages.create(
+  thread_id=thread.id,
+  role="user",
+  content=prompt2,
+  # attachments=[
+  #     {"file_id": file.id, "tools": [{"type": "file_search"}]}
+  #   ]
+)
+
+run = client.beta.threads.runs.create_and_poll(
+        thread_id=thread.id,
+        assistant_id=assistant.id,
+        # tool_choice={"type": "file_search"}
+    )
+
+if run.status == 'completed':
+  messages = client.beta.threads.messages.list(thread_id=thread.id)
+  current_message = (messages.data)[0]
+  print(current_message.content[0].text.value)
+  # print(current_message)
 else:
   print(run.status)

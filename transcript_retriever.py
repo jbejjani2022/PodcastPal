@@ -1,4 +1,4 @@
-# retrieve podcast transcripts
+# retrieve podcast transcripts from a Lex Fridman episode number or Youtube URL
 
 import requests
 from bs4 import BeautifulSoup
