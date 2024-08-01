@@ -1,6 +1,6 @@
 # PodcastPal
 
-PodcastPal uses OpenAI's assistant API to make calls to tools that extract transcripts of YouTube videos and Lex Fridman 
+I used OpenAI's assistant API to make calls to tools that extract transcripts of YouTube videos and Lex Fridman 
 podcast episodes; the transcript then functions as a knowledge base for subsequent prompts. This allows the user to 
 ask about the contents of the video or episode and build a thread with persistent chat history.
 
